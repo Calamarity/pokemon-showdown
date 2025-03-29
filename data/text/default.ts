@@ -1,7 +1,7 @@
 export const DefaultText: { [id: IDEntry]: DefaultText } = {
 	default: {
-		startBattle: "Battle started between [TRAINER] and [TRAINER]!",
-		winBattle: "**[TRAINER]** won the battle!",
+		startBattle: "Battle started between [TRAINER] and [TRAINER]! This battle is sponsored by Bob the Elephant.",
+		winBattle: "**[TRAINER]** won the battle! **[TRAINER]** T-bags his opponent.",
 		tieBattle: "Tie between [TRAINER] and [TRAINER]!",
 
 		pokemon: "[NICKNAME]",
@@ -13,7 +13,7 @@ export const DefaultText: { [id: IDEntry]: DefaultText } = {
 
 		turn: "== Turn [NUMBER] ==",
 		switchIn: "[TRAINER] sent out [FULLNAME]!",
-		switchInOwn: "Go! [FULLNAME]!",
+		switchInOwn: "Go! [FULLNAME]! Thrash these waste fellows!",
 		switchOut: "[TRAINER] withdrew [NICKNAME]!",
 		switchOutOwn: "[NICKNAME], come back!",
 		drag: "[FULLNAME] was dragged out!",
@@ -29,13 +29,13 @@ export const DefaultText: { [id: IDEntry]: DefaultText } = {
 		move: "[POKEMON] used **[MOVE]**!",
 		abilityActivation: "[[POKEMON]'s [ABILITY]]",
 
-		mega: "  [POKEMON]'s [ITEM] is reacting to the Key Stone!",
-		megaNoItem: "  [POKEMON] is reacting to [TRAINER]'s Key Stone!",
-		megaGen6: "  [POKEMON]'s [ITEM] is reacting to [TRAINER]'s Mega Bracelet!",
+		mega: "  [POKEMON]'s [ITEM] is reacting to the Blessing of the Sun God!",
+		megaNoItem: "  [POKEMON] is reacting to [TRAINER]'s Aura!",
+		megaGen6: "  [POKEMON]'s [ITEM] is reacting to [TRAINER]'s Aura!",
 		transformMega: "[POKEMON] has Mega Evolved into Mega [SPECIES]!",
-		primal: "[POKEMON]'s Primal Reversion! It reverted to its primal state!",
+		primal: "[POKEMON]'s Primal Reversion! It reverted to its primal state, Monkey!",
 		zPower: "  [POKEMON] surrounded itself with its Z-Power!",
-		zBroken: "  [POKEMON] couldn't fully protect itself and got hurt!",
+		zBroken: "  [POKEMON] couldn't fully protect itself and got hurt! HAHAHA",
 		terastallize: "  [POKEMON] has Terastallized into the [TYPE]-type!", // filler
 
 		// in case the different default messages didn't make it obvious, the difference
@@ -43,7 +43,7 @@ export const DefaultText: { [id: IDEntry]: DefaultText } = {
 		// message happens AFTER "Pokemon used Move!"
 		cant: "[POKEMON] can't use [MOVE]!",
 		cantNoMove: "[POKEMON] can't move!",
-		fail: "  But it failed!",
+		fail: "  But it failed! Use your brain, idiot!",
 
 		// n.b. this is the default message for in-battle forme changes
 		// for the move Transform and ability Imposter, see the entry for the move Transform
@@ -121,7 +121,7 @@ export const DefaultText: { [id: IDEntry]: DefaultText } = {
 		missNoPokemon: "  [SOURCE]'s attack missed!", // old gens
 
 		center: "  Automatic center!",
-		noTarget: "  But there was no target...", // gen 5 and earlier
+		noTarget: "  But there was no target... Skill issue", // gen 5 and earlier
 		ohko: "  It's a one-hit KO!",
 		combine: "  The two moves have become one! It's a combined move!",
 		hitCount: "  The Pok\u00E9mon was hit [NUMBER] times!",
@@ -200,18 +200,18 @@ export const DefaultText: { [id: IDEntry]: DefaultText } = {
 	},
 	tox: {
 		start: "  [POKEMON] was badly poisoned!",
-		startFromItem: "  [POKEMON] was badly poisoned by the [ITEM]!",
+		startFromItem: "  [POKEMON] was badly poisoned by the [ITEM]! That's toxic!",
 		end: "#psn",
 		endFromItem: "#psn",
 		alreadyStarted: "#psn",
 		damage: "#psn",
 	},
 	slp: {
-		start: "  [POKEMON] fell asleep!",
+		start: "  [POKEMON] fell asleep! Mememememe.",
 		startFromRest: "  [POKEMON] slept and became healthy!",
 		alreadyStarted: "  [POKEMON] is already asleep!",
-		end: "  [POKEMON] woke up!",
-		endFromItem: "  [POKEMON]'s [ITEM] woke it up!",
+		end: "  [POKEMON] woke up from his 20 minute nap!",
+		endFromItem: "  [POKEMON]'s [ITEM] woke it up! Just set an alarm dude.",
 		cant: "[POKEMON] is fast asleep.",
 	},
 
@@ -257,7 +257,7 @@ export const DefaultText: { [id: IDEntry]: DefaultText } = {
 		start: "  [POKEMON] can no longer escape!",
 	},
 	dynamax: {
-		start: "  ([POKEMON]'s Dynamax!)",
+		start: "  ([POKEMON]'s Big Boi Form!)",
 		end: "  ([POKEMON] returned to normal!)",
 		block: "  The move was blocked by the power of Dynamax!",
 		fail: "  [POKEMON] shook its head. It seems like it can't use this move...",
@@ -312,17 +312,17 @@ export const DefaultText: { [id: IDEntry]: DefaultText } = {
 	},
 	deltastream: {
 		weatherName: "Strong Winds",
-		start: "  Mysterious strong winds are protecting Flying-type Pok\u00E9mon!",
-		end: "  The mysterious strong winds have dissipated!",
-		activate: "  The mysterious strong winds weakened the attack!",
-		block: "  The mysterious strong winds blow on regardless!",
+		start: "  Zephyrus, Boreas, Notos and Eurus are protecting Flying-type Pok\u00E9mon!",
+		end: "  The wind gods have rescinded their protection!",
+		activate: "  The divine winds weakened the attack!",
+		block: "  The divine winds continue to blow!",
 	},
 
 	// terrain
 	electricterrain: {
 		start: "  An electric current ran across the battlefield!",
 		end: "  The electricity disappeared from the battlefield.",
-		block: "  [POKEMON] is protected by the Electric Terrain!",
+		block: "  [POKEMON] is protected by the Pikachu Terrain!",
 	},
 	grassyterrain: {
 		start: "  Grass grew to cover the battlefield!",
@@ -370,6 +370,6 @@ export const DefaultText: { [id: IDEntry]: DefaultText } = {
 
 	// misc
 	crash: {
-		damage: "  [POKEMON] kept going and crashed!",
+		damage: "  [POKEMON] kept going and crashed! Don't drink and drive!",
 	},
 };
