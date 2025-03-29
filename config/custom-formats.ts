@@ -15,11 +15,8 @@ export const Formats: FormatList = [
 	}
 
 	{
-		section: "Free-For-All",
-	},
-	{
-		name: "[Gen 9 NatDex] Free-For-All",
-		mod: 'gen9',
+		name: "[Gen 8 NatDex] Free-For-All",
+		mod: 'gen8',
 		gameType: 'freeforall',
 		rated: false,
 		tournamentShow: false,
