@@ -11,6 +11,6 @@ export const Formats: FormatList = [
 		gameType: 'freeforall',
 		rated: false,
 		tournamentShow: false,
-		ruleset: ['Standard', 'Sleep Moves Clause', '!Sleep Clause Mod', '!Evasion Items Clause', '!Dynamax Clause'],
+		ruleset: ['Standard', 'Sleep Moves Clause', '!Sleep Clause Mod', '!Evasion Items Clause'],
 	}
 ]
