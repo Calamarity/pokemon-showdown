@@ -1,5 +1,5 @@
 export const Formats: FormatList = [
-]
+
 //Lemon hahahah L bozo
 
 {
@@ -13,3 +13,4 @@ export const Formats: FormatList = [
 		tournamentShow: false,
 		ruleset: ['Standard', 'Sleep Moves Clause', '!Sleep Clause Mod', '!Evasion Items Clause', '!Dynamax Clause'],
 	}
+]
