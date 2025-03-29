@@ -6,11 +6,11 @@ export const Formats: FormatList = [
 		section: "Free-For-All",
 	},
 	{
-		name: "[Gen 8] Free-For-All",
-		mod: 'gen8',
+		name: "[Gen 9 NatDex] Free-For-All",
+		mod: 'gen9',
 		gameType: 'freeforall',
 		rated: false,
 		tournamentShow: false,
-		ruleset: ['Standard', 'Sleep Moves Clause', '!Sleep Clause Mod', '!Evasion Items Clause'],
+		ruleset: ['Standard NatDex', 'Terastal Clause'],
 	}
 ]
