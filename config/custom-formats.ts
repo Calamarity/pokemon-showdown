@@ -12,7 +12,7 @@ export const Formats: FormatList = [
 		rated: false,
 		tournamentShow: false,
 		ruleset: ['Standard NatDex', 'Terastal Clause'],
-	}
+	},
 
 	{
 		name: "[Gen 8 NatDex] Free-For-All",
