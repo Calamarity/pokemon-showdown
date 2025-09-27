@@ -148,7 +148,7 @@ export const Formats: FormatList = [
 		},
 	},
 	{
-		name: "[Gen 9] Free-For-All Random Battle (Shared Power, B12P6)",
+		name: "[Gen 9] FFA Random Battle (Shared Power)",
 		desc: `[Gen 9] Random Battle with Team Preview, Bring 12 Pick 6, and Shared Power.`,
 		mod: 'sharedpower',
 		team: 'random',
