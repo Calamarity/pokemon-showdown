@@ -18,7 +18,7 @@ export const Formats: FormatList = [
 			'Obtainable', 'Species Clause', 'HP Percentage Mod', 'Cancel Mod', 'Sleep Clause Mod', 'Illusion Level Mod'],
 	},
 	{
-		name: "[Gen 7] Multi Random Battle",
+		name: "[Gen 7] Monotype Multi Random Battle",
 		mod: 'gen7',
 		team: 'random',
 		gameType: 'multi',
