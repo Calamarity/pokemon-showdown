@@ -195,4 +195,16 @@ export const Formats: FormatList = [
 			}
 		},
 	},
+	{
+		name: "[Gen 7] Multi++ Random Battle",
+		mod: 'gen7',
+		team: 'random',
+		gameType: 'multi',
+		searchShow: false,
+		tournamentShow: false,
+		rated: false,
+		ruleset: [
+			'Max Team Size = 6',
+			'Obtainable', 'Species Clause', 'HP Percentage Mod', 'Cancel Mod', 'Sleep Clause Mod', 'Illusion Level Mod'],
+	},
 	]
