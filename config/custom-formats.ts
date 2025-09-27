@@ -95,7 +95,7 @@ export const Formats: FormatList = [
 		},
 	},
 	{
-		name: "[Gen 9] Super Staff Bros Ultimate",
+		name: "[Gen 9] Super Staff Bros Ultimate FFA",
 		desc: "The fifth iteration of Super Staff Bros is here! Battle with a random team of pokemon created by the sim staff.",
 		mod: 'gen9ssb',
 		debug: true,
