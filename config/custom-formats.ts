@@ -196,7 +196,7 @@ export const Formats: FormatList = [
 		},
 	},
 	{
-		name: "[Gen 7] Multi++ Random Battle",
+		name: "[Gen 7] Multi Plus Random Battle",
 		mod: 'gen7',
 		team: 'random',
 		gameType: 'multi',
