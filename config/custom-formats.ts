@@ -40,7 +40,7 @@ export const Formats: FormatList = [
 		ruleset: ['Obtainable', 'Species Clause', 'HP Percentage Mod', 'Cancel Mod', 'Sleep Clause Mod', 'Illusion Level Mod'],
 	},
 	{
-		name: "[Gen 7] Free-For-All Monotype Random Battle",
+		name: "[Gen 7] Monotype Free-For-All Random Battle",
 		mod: 'gen7',
 		team: 'random',
 		gameType: 'freeforall',
