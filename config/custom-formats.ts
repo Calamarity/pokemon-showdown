@@ -50,7 +50,7 @@ export const Formats: FormatList = [
 		ruleset: ['Obtainable', 'Same Type Clause', 'Species Clause', 'HP Percentage Mod', 'Cancel Mod', 'Sleep Clause Mod', 'Illusion Level Mod'],
 	},
 	{
-		name: "[Gen 9] Monkey's Paw Random Battle",
+		name: "[Gen 9] Monkey's Paw Free-For-All Random Battle",
 		desc: `Every Pokemon can wish for something with the Monkey's Paw once.`,
 		mod: 'monkeyspaw',
 		team: 'random',
