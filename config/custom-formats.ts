@@ -147,4 +147,11 @@ export const Formats: FormatList = [
 			}
 		},
 	},
+	{
+	name: "[Gen 9] National Dex Ubers Random Battle",
+		mod: 'gen9',
+		team: 'random',
+		ruleset: ['Standard NatDex', '!Evasion Clause', 'Evasion Moves Clause', 'Evasion Items Clause', 'Mega Rayquaza Clause'],
+		banlist: ['ND AG', 'Shedinja', 'Assist', 'Baton Pass'],
+	},
 	]
