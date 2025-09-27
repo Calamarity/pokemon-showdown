@@ -154,7 +154,7 @@ export const Formats: FormatList = [
 		team: 'random',
 		gameType: 'freeforall',
 		bestOfDefault: true,
-		ruleset: ['[Gen 9] Free-For-All', 'Team Preview', 'Max Team Size = 12', 'Picked Team Size = 6'],
+		ruleset: ['[Gen 9] Free-For-All', 'Max Team Size = 12', 'Picked Team Size = 6'],
 		onValidateRule() {
 			if (this.format.gameType !== 'freeforall') {
 				throw new Error(`Shared Power currently does not support ${this.format.gameType} battles.`);
