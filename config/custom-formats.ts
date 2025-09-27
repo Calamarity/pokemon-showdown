@@ -31,7 +31,7 @@ export const Formats: FormatList = [
 		name: "[Gen 9] Random Battle (Shared Power, B12P6)",
 		desc: `[Gen 9] Random Battle with Team Preview, Bring 12 Pick 6, and Shared Power.`,
 		mod: 'sharedpower',
-		team: 'random',
+		team: 'randomffa',
 		gameType: 'freeforall',
 		bestOfDefault: true,
 		ruleset: ['[Gen 9] Random Battle', 'Team Preview', 'Max Team Size = 12', 'Picked Team Size = 6'],
