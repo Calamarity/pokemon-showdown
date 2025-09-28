@@ -172,7 +172,7 @@ export const Formats: FormatList = [
 		},
 	},
 	{
-		name: "[Gen 9] Multi Random Battle (Shared Power)",
+		name: "[Gen 9] Multi Random Lite (Shared Power)",
 		desc: `[Gen 9] Random Battle with Team Preview, Bring 12 Pick 6, and Shared Power.`,
 		mod: 'sharedpower',
 		team: 'random',
@@ -207,4 +207,17 @@ export const Formats: FormatList = [
 			'Max Team Size = 6',
 			'Obtainable', 'Species Clause', 'HP Percentage Mod', 'Cancel Mod', 'Sleep Clause Mod', 'Illusion Level Mod'],
 	},
+	{
+		name: "[Gen 9] Multi Random Plus (Shared Power)",
+		desc: `[Gen 9] Random Battle with Team Preview, Bring 12 Pick 6, and Shared Power.`,
+		mod: 'sharedpower',
+		team: 'random',
+		gameType: 'multi',
+		bestOfDefault: true,
+		ruleset: ['[Gen 9] Free-For-All', 'Max Team Size = 12', 'Picked Team Size = 6'],
+		onValidateRule() {
+			if (this.format.gameType !== 'multi') {
+				throw new Error(`Shared Power currently does not support ${this.format.gameType} battles.`);
+			}
+		},
 	]
