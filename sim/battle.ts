@@ -121,7 +121,7 @@ export class Battle {
 	 */
 	readonly activePerHalf: 1 | 2 | 3;
 	readonly field: Field;
-	readonly sides: [Side, Side] | [Side, Side, Side, Side] | [Side, Side, Side, Side, Side, Side];
+	readonly sides: [Side, Side] | [Side, Side, Side, Side];
 	readonly prngSeed: PRNGSeed;
 	dex: ModdedDex;
 	gen: number;
