@@ -5524,6 +5524,9 @@ export const Items: import('../sim/dex-items').ItemDataTable = {
 	splashplate: {
 		name: "Splash Plate",
 		spritenum: 463,
+		megaStone: "Bidoof-Mega",
+		megaEvolves: "Bidoof",
+		itemUser: ["Bidoof"],
 		onPlate: 'Water',
 		onBasePowerPriority: 15,
 		onBasePower(basePower, user, target, move) {
@@ -5540,6 +5543,13 @@ export const Items: import('../sim/dex-items').ItemDataTable = {
 		forcedForme: "Arceus-Water",
 		num: 299,
 		gen: 4,
+		onTakeItem(item, source) {
+			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
+			return true;
+		},
+		num: 927,
+		gen: 7,
+		isNonstandard: "Past",
 	},
 	spookyplate: {
 		name: "Spooky Plate",
