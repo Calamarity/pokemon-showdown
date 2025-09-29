@@ -7255,7 +7255,7 @@ export const Pokedex: import('../sim/dex-species').SpeciesDataTable = {
 		weightkg: 20,
 		color: "Brown",
 		eggGroups: ["Water 1", "Field"],
-		requiredItem: "splashplate",
+		requiredItem: "abomasite",
 	},
 	bibarel: {
 		num: 400,
