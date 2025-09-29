@@ -5939,6 +5939,7 @@ export const Items: import('../sim/dex-items').ItemDataTable = {
 	},
 	tr04: {
 		name: "TR04",
+		spritenum: 731,
 		megaStone: "Bidoof-Mega",
 		megaEvolves: "Bidoof",
 		itemUser: ["Bidoof"],
@@ -5949,7 +5950,6 @@ export const Items: import('../sim/dex-items').ItemDataTable = {
 			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
 			return true;
 		},
-		spritenum: 731,
 		num: 1134,
 		gen: 8,
 		isNonstandard: "Past",
