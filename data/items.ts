@@ -1152,7 +1152,7 @@ export const Items: import('../sim/dex-items').ItemDataTable = {
 		},
 		onModifySecondaries(secondaries) {
 			this.debug('Covert Cloak prevent secondary');
-			return secondaries.filter(effect => !!effect.self);
+			return secondaries.filter(effect => !!(effect.self || effect.dustproof));
 		},
 		num: 1885,
 		gen: 9,
@@ -1571,47 +1571,25 @@ export const Items: import('../sim/dex-items').ItemDataTable = {
 		fling: {
 			basePower: 50,
 		},
-		onAfterBoost(boost, pokemon) {
-			if (this.effectState.eject || this.activeMove?.id === 'partingshot') return;
+		onAfterBoost(boost, target, source, effect) {
+			if (this.activeMove?.id === 'partingshot') return;
+			let eject = false;
 			let i: BoostID;
 			for (i in boost) {
 				if (boost[i]! < 0) {
-					this.effectState.eject = true;
-					break;
+					eject = true;
 				}
 			}
-		},
-		onAnySwitchInPriority: -4,
-		onAnySwitchIn() {
-			if (!this.effectState.eject) return;
-			(this.effectState.target as Pokemon).useItem();
-		},
-		onAnyAfterMega() {
-			if (!this.effectState.eject) return;
-			(this.effectState.target as Pokemon).useItem();
-		},
-		onAnyAfterMove() {
-			if (!this.effectState.eject) return;
-			(this.effectState.target as Pokemon).useItem();
-		},
-		onResidualOrder: 29,
-		onResidual(pokemon) {
-			if (!this.effectState.eject) return;
-			(this.effectState.target as Pokemon).useItem();
-		},
-		onUseItem(item, pokemon) {
-			if (!this.canSwitch(pokemon.side)) return false;
-			if (pokemon.volatiles['commanding'] || pokemon.volatiles['commanded']) return false;
-			for (const active of this.getAllActive()) {
-				if (active.switchFlag === true) return false;
+			if (eject) {
+				if (target.hp) {
+					if (!this.canSwitch(target.side)) return;
+					if (target.volatiles['commanding'] || target.volatiles['commanded']) return;
+					for (const pokemon of this.getAllActive()) {
+						if (pokemon.switchFlag === true) return;
+					}
+					if (target.useItem()) target.switchFlag = true;
+				}
 			}
-			return true;
-		},
-		onUse(pokemon) {
-			pokemon.switchFlag = true;
-		},
-		onEnd() {
-			delete this.effectState.eject;
 		},
 		num: 1119,
 		gen: 8,
@@ -3838,24 +3816,16 @@ export const Items: import('../sim/dex-items').ItemDataTable = {
 		},
 		onAnySwitchInPriority: -3,
 		onAnySwitchIn() {
-			if (!this.effectState.ready) return;
-			(this.effectState.target as Pokemon).useItem();
-		},
-		onAnyAfterMega() {
-			if (!this.effectState.ready) return;
-			(this.effectState.target as Pokemon).useItem();
-		},
-		onAnyAfterTerastallization() {
-			if (!this.effectState.ready) return;
+			if (!this.effectState.ready || !this.effectState.boosts) return;
 			(this.effectState.target as Pokemon).useItem();
 		},
 		onAnyAfterMove() {
-			if (!this.effectState.ready) return;
+			if (!this.effectState.ready || !this.effectState.boosts) return;
 			(this.effectState.target as Pokemon).useItem();
 		},
 		onResidualOrder: 29,
 		onResidual(pokemon) {
-			if (!this.effectState.ready) return;
+			if (!this.effectState.ready || !this.effectState.boosts) return;
 			(this.effectState.target as Pokemon).useItem();
 		},
 		onUse(pokemon) {
@@ -5242,11 +5212,7 @@ export const Items: import('../sim/dex-items').ItemDataTable = {
 		},
 		onTrapPokemonPriority: -10,
 		onTrapPokemon(pokemon) {
-			pokemon.trapped = false;
-		},
-		onMaybeTrapPokemonPriority: -10,
-		onMaybeTrapPokemon(pokemon) {
-			pokemon.maybeTrapped = false;
+			pokemon.trapped = pokemon.maybeTrapped = false;
 		},
 		num: 295,
 		gen: 4,
@@ -5540,7 +5506,6 @@ export const Items: import('../sim/dex-items').ItemDataTable = {
 		forcedForme: "Arceus-Water",
 		num: 299,
 		gen: 4,
-		},
 	},
 	spookyplate: {
 		name: "Spooky Plate",
@@ -5979,13 +5944,6 @@ export const Items: import('../sim/dex-items').ItemDataTable = {
 		},
 		spritenum: 731,
 		num: 1134,
-		megaStone: "Bidoof-Mega",
-		megaEvolves: "Bidoof",
-		itemUser: ["Bidoof"],
-		onTakeItem(item, source) {
-			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
-			return true;
-		},
 		gen: 8,
 		isNonstandard: "Past",
 	},
@@ -7233,36 +7191,27 @@ export const Items: import('../sim/dex-items').ItemDataTable = {
 				}
 			},
 		},
+		onAnySwitchInPriority: -2,
+		onAnySwitchIn() {
+			((this.effect as any).onUpdate as (p: Pokemon) => void).call(this, this.effectState.target);
+		},
 		onStart(pokemon) {
-			this.effectState.boosts = {} as SparseBoostsTable;
-			let ready = false;
+			((this.effect as any).onUpdate as (p: Pokemon) => void).call(this, pokemon);
+		},
+		onUpdate(pokemon) {
+			let activate = false;
+			const boosts: SparseBoostsTable = {};
 			let i: BoostID;
 			for (i in pokemon.boosts) {
 				if (pokemon.boosts[i] < 0) {
-					ready = true;
-					this.effectState.boosts[i] = 0;
+					activate = true;
+					boosts[i] = 0;
 				}
 			}
-			if (ready) (this.effectState.target as Pokemon).useItem();
-			delete this.effectState.boosts;
-		},
-		onAnySwitchInPriority: -2,
-		onAnySwitchIn() {
-			((this.effect as any).onStart as (p: Pokemon) => void).call(this, this.effectState.target);
-		},
-		onAnyAfterMega() {
-			((this.effect as any).onStart as (p: Pokemon) => void).call(this, this.effectState.target);
-		},
-		onAnyAfterMove() {
-			((this.effect as any).onStart as (p: Pokemon) => void).call(this, this.effectState.target);
-		},
-		onResidualOrder: 29,
-		onResidual(pokemon) {
-			((this.effect as any).onStart as (p: Pokemon) => void).call(this, pokemon);
-		},
-		onUse(pokemon) {
-			pokemon.setBoost(this.effectState.boosts);
-			this.add('-clearnegativeboost', pokemon, '[silent]');
+			if (activate && pokemon.useItem()) {
+				pokemon.setBoost(boosts);
+				this.add('-clearnegativeboost', pokemon, '[silent]');
+			}
 		},
 		num: 214,
 		gen: 3,
